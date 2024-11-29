@@ -21,8 +21,8 @@ public class OpenPage {
         WebElement EnterEmail=driver.findElement(By.name("email"));
         EnterEmail.sendKeys("Ann@gmail.com");
         Thread.sleep(3000);
-        WebElement Pickdate=driver.findElement(By.name("date"));
-        Pickdate.sendKeys("02/02/2023");
+        WebElement DatePicker=driver.findElement(By.name("date"));
+        DatePicker.sendKeys("02/02/2023");
         Thread.sleep(3000);
         WebElement EnterAddress=driver.findElement(By.name("address"));
         EnterAddress.sendKeys("No:12/B,Thammita,Makevita");
