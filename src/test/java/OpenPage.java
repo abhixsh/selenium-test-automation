@@ -14,9 +14,24 @@ public class OpenPage {
         driver.get("http://localhost:3000");
     }
     @Test
-    public void TestTextBox(){
+    public void TestTextBox() throws InterruptedException {
         WebElement EnterName=driver.findElement(By.name("name"));
         EnterName.sendKeys("Ann Perera");
+        Thread.sleep(3000);
+        WebElement EnterEmail=driver.findElement(By.name("email"));
+        EnterEmail.sendKeys("Ann@gmail.com");
+        Thread.sleep(3000);
+        WebElement Pickdate=driver.findElement(By.name("date"));
+        Pickdate.sendKeys("02/02/2023");
+        Thread.sleep(3000);
+        WebElement EnterAddress=driver.findElement(By.name("address"));
+        EnterAddress.sendKeys("No:12/B,Thammita,Makevita");
+        Thread.sleep(3000);
+        WebElement Submit=driver.findElement(By.tagName("button"));
+        Submit.click();
+
+
+
     }
 
 
