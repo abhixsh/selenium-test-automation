@@ -27,8 +27,8 @@ public class OpenPage {
         WebElement EnterAddress=driver.findElement(By.name("address"));
         EnterAddress.sendKeys("No:12/B,Thammita,Makevita");
         Thread.sleep(3000);
-        WebElement ButtonSubmit=driver.findElement(By.tagName("button"));
-        ButtonSubmit .click();
+        WebElement SubmitButton=driver.findElement(By.tagName("button"));
+        SubmitButton.click();
 
 
 
