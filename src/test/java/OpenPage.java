@@ -17,15 +17,15 @@ public class OpenPage {
     public void TestTextBox(){
         WebElement EnterName=driver.findElement(By.name("name"));
         EnterName.sendKeys("Ann Perera");
-        }
-
-
-
-
-
-
-
     }
+
+
+
+
+
+
+
+}
 
 
 
