@@ -23,3 +23,7 @@ app.use('/api', formRoutes);
 app.listen(5000, () => {
     console.log('Backend server running on http://localhost:5000');
 });
+
+app.get('/', (req, res) => {
+    res.send('Backend server running on http://localhost:5000');
+});
