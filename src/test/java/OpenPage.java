@@ -15,8 +15,8 @@ public class OpenPage {
     }
     @Test
         public void TestTextBox(){
-            WebElement EnterName=driver.findElement(By.name("name"));
-            EnterName.sendKeys("Ann Perera");
+        WebElement EnterName=driver.findElement(By.name("name"));
+        EnterName.sendKeys("Ann Perera");
         }
 
 
