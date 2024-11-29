@@ -14,7 +14,7 @@ public class OpenPage {
         driver.get("http://localhost:3000");
     }
     @Test
-        public void TestTextBox(){
+    public void TestTextBox(){
         WebElement EnterName=driver.findElement(By.name("name"));
         EnterName.sendKeys("Ann Perera");
         }
