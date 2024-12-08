@@ -41,6 +41,8 @@
                     <forkCount>1</forkCount>
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <printSummary>true</printSummary>
+                    <redirectTestOutputToFile>false</redirectTestOutputToFile>
+                    <reportFormat>plain</reportFormat>
                 </configuration>
             </plugin>
         </plugins>

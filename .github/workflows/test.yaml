@@ -37,10 +37,13 @@ jobs:
     - name: Build and Run Tests
       run: |
         mvn clean test | tee test-output.txt
+        cat test-output.txt
 
     # Upload Surefire Reports
     - name: Upload Test Reports
       uses: actions/upload-artifact@v3
       with:
         name: test-reports
-        path: target/surefire-reports/*.txt
+        path: |
+          target/surefire-reports/*.txt
+          test-output.txt
