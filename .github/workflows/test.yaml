@@ -37,9 +37,16 @@ jobs:
     - name: Build and Run Tests
       run: |
         mvn clean test | tee test-output.txt
-        cat test-output.txt
 
-    # Upload Surefire Reports
+    # Display Test Results in Terminal
+    - name: Display Test Results
+      run: |
+        echo "-------------------------------------------------------"
+        echo "T E S T S"
+        echo "-------------------------------------------------------"
+        cat test-output.txt | grep -A 10 "Tests run:" # Filters the relevant output to show in terminal.
+
+    # Upload Surefire Reports and Test Output
     - name: Upload Test Reports
       uses: actions/upload-artifact@v3
       with:
