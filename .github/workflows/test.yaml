@@ -46,5 +46,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v3
         with:
-          name: selenium-test-results
-          path: target/surefire-reports/
+            name: selenium-test-results
+            path: target/test-classes/
+            if-no-files-found: warn
+            include-hidden-files: false
+

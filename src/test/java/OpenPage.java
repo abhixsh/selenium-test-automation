@@ -22,7 +22,7 @@ public class OpenPage {
 
         // Initialize the WebDriver with the ChromeDriver and options
         driver = new ChromeDriver(options);
-        driver.get("http://localhost:3000"); // Open the local React app
+        driver.get("http://localhost:5173"); // Open the local React app
     }
 
     @Test
