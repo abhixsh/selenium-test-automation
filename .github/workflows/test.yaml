@@ -38,13 +38,18 @@ jobs:
       run: |
         mvn clean test | tee test-output.txt
 
+    # Display the contents of the output for debugging
+    - name: Display Test Output for Debugging
+      run: |
+        cat test-output.txt
+
     # Display Test Results in Terminal
     - name: Display Test Results
       run: |
         echo "-------------------------------------------------------"
         echo "T E S T S"
         echo "-------------------------------------------------------"
-        cat test-output.txt | grep -A 10 "Tests run:" # Filters the relevant output to show in terminal.
+        tail -n 20 test-output.txt # Show the last 20 lines of the file
 
     # Upload Surefire Reports and Test Output
     - name: Upload Test Reports
