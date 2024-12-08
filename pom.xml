@@ -9,29 +9,25 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source> <!-- Updated Java source version -->
+        <maven.compiler.target>17</maven.compiler.target> <!-- Updated Java target version -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-<dependencies>
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.25.0</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-    <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.9.0</version>
-        <scope>test</scope>
-    </dependency>
 
+    <dependencies>
+        <!-- Selenium -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.25.0</version>
+        </dependency>
 
-
-
-
-
-</dependencies>
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
