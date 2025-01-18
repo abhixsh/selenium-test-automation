@@ -4,9 +4,6 @@ import { Search, Briefcase, Users, Building2, MapPin, Upload, X, Download, Check
 const JobPortal = () => {
     const [showForm, setShowForm] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [locationTerm, setLocationTerm] = useState('');
-    const [showSearchResults, setShowSearchResults] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -18,64 +15,6 @@ const JobPortal = () => {
         resume: null,
         profilePicture: null
     });
-
-    const allJobs = [
-        {
-            id: 1,
-            title: "Senior Frontend Developer",
-            company: "Tech Corp",
-            location: "Remote",
-            salary: "$120k - $150k",
-            type: "Full-time",
-            skills: ["React", "TypeScript", "CSS"],
-            experience: "5+ years",
-            posted: "2 days ago"
-        },
-        {
-            id: 2,
-            title: "Backend Developer",
-            company: "Innovation Labs",
-            location: "New York",
-            salary: "$100k - $130k",
-            type: "Full-time",
-            skills: ["Python", "Django", "PostgreSQL"],
-            experience: "3+ years",
-            posted: "1 day ago"
-        },
-        {
-            id: 3,
-            title: "Frontend Engineer",
-            company: "Design Studio",
-            location: "San Francisco",
-            salary: "$110k - $140k",
-            type: "Full-time",
-            skills: ["JavaScript", "Vue.js", "Sass"],
-            experience: "4+ years",
-            posted: "3 days ago"
-        },
-        {
-            id: 4,
-            title: "Full Stack Developer",
-            company: "Tech Innovators",
-            location: "Remote",
-            salary: "$130k - $160k",
-            type: "Full-time",
-            skills: ["React", "Node.js", "MongoDB"],
-            experience: "4+ years",
-            posted: "Just now"
-        },
-        {
-            id: 5,
-            title: "React Developer",
-            company: "WebTech Solutions",
-            location: "London",
-            salary: "£65k - £85k",
-            type: "Full-time",
-            skills: ["React", "Redux", "JavaScript"],
-            experience: "2+ years",
-            posted: "1 week ago"
-        }
-    ];
 
     const featuredCompanies = [
         { name: 'Tech Corp', roles: 12, type: 'Technology' },
@@ -170,111 +109,6 @@ const JobPortal = () => {
         }, 3000);
     };
 
-    const SearchResults = () => {
-        const filteredJobs = filterJobs();
-
-        return (
-            <div className="absolute top-full left-0 right-0 bg-white rounded-lg mt-2 shadow-xl z-50 max-h-96 overflow-y-auto">
-                {filteredJobs.length > 0 ? (
-                    filteredJobs.map(job => (
-                        <div key={job.id} className="p-4 border-b hover:bg-gray-50 cursor-pointer">
-                            <div className="flex justify-between items-start mb-2">
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">{job.title}</h3>
-                                    <p className="text-gray-600">{job.company}</p>
-                                </div>
-                                <span className="text-sm text-gray-500">{job.posted}</span>
-                            </div>
-                            <div className="flex items-center text-gray-500 text-sm gap-4 mb-2">
-                                <div className="flex items-center">
-                                    <MapPin className="w-4 h-4 mr-1" />
-                                    {job.location}
-                                </div>
-                                <div>{job.type}</div>
-                                <div>{job.experience}</div>
-                            </div>
-                            <div className="flex flex-wrap gap-2">
-                                {job.skills.map((skill, index) => (
-                                    <span
-                                        key={index}
-                                        className="px-2 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                            <div className="mt-2 flex justify-between items-center">
-                                <span className="font-semibold text-indigo-600">{job.salary}</span>
-                                <button
-                                    onClick={() => setShowForm(true)}
-                                    className="px-4 py-1 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 text-sm transition-colors"
-                                >
-                                    Apply Now
-                                </button>
-                            </div>
-                        </div>
-                    ))
-                ) : (
-                    <div className="p-4 text-center text-gray-500">
-                        No jobs found matching your search criteria
-                    </div>
-                )}
-            </div>
-        );
-    };
-
-
-    const filterJobs = () => {
-        return allJobs.filter(job => {
-            const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
-
-            const matchesLocation = locationTerm === '' ||
-                job.location.toLowerCase().includes(locationTerm.toLowerCase());
-
-            return matchesSearch && matchesLocation;
-        });
-    };
-
-    const handleSearch = (e) => {
-        e.preventDefault();
-        setShowSearchResults(true);
-    };
-
-    const searchForm = (
-        <div className="max-w-3xl mx-auto relative">
-            <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-4 bg-white rounded-lg p-2">
-                <div className="flex-1 flex items-center bg-gray-50 rounded-md px-4">
-                    <Search className="w-5 h-5 text-gray-400" />
-                    <input
-                        placeholder="Job title, company, or skill"
-                        className="w-full border-0 bg-transparent focus:ring-0 focus:outline-none p-2"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                </div>
-                <div className="flex-1 flex items-center bg-gray-50 rounded-md px-4">
-                    <MapPin className="w-5 h-5 text-gray-400" />
-                    <input
-                        placeholder="Location"
-                        className="w-full border-0 bg-transparent focus:ring-0 focus:outline-none p-2"
-                        value={locationTerm}
-                        onChange={(e) => setLocationTerm(e.target.value)}
-                    />
-                </div>
-                <button
-                    type="submit"
-                    className="md:w-auto w-full bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 transition-colors"
-                >
-                    Search Jobs
-                </button>
-            </form>
-            {showSearchResults && <SearchResults />}
-        </div>
-    );
-
-
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
             {/* Hero Section */}
@@ -294,7 +128,7 @@ const JobPortal = () => {
                         <p className="text-xl md:text-2xl mb-8 text-gray-200">
                             Discover thousands of job opportunities with the top companies
                         </p>
-                        {searchForm}
+                        
                     </div>
                 </div>
             </div>
