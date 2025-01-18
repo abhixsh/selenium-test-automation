@@ -115,7 +115,7 @@ const JobPortal = () => {
             <div className="relative bg-indigo-900 text-white">
                 <div className="absolute inset-0">
                     <img
-                        src="/api/placeholder/1920/600"
+                        src="img/landing.jpg"
                         alt="Hero background"
                         className="w-full h-full object-cover opacity-20"
                     />
@@ -177,7 +177,7 @@ const JobPortal = () => {
                         <div key={index} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
                             <div className="flex items-center justify-between mb-4">
                                 <img
-                                    src="/api/placeholder/64/64"
+                                    src="/img/tech.jpg"
                                     alt={job.company}
                                     className="w-16 h-16 rounded-lg"
                                 />
@@ -217,7 +217,7 @@ const JobPortal = () => {
                             <div key={index} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition-shadow">
                                 <div className="flex items-center justify-center mb-4">
                                     <img
-                                        src="/api/placeholder/80/80"
+                                        src="/img/health.jpg"
                                         alt={company.name}
                                         className="w-20 h-20 rounded-lg"
                                     />
