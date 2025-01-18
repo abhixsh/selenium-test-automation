@@ -424,16 +424,6 @@ const JobPortal = () => {
                                                 </p>
                                             )}
                                         </div>
-                                        <div className="mt-2 flex justify-end">
-                                            <button
-                                                type="button"
-                                                className="flex items-center text-indigo-600 hover:text-indigo-800"
-                                                onClick={() => {/* Add download sample resume logic */ }}
-                                            >
-                                                <Download className="w-4 h-4 mr-1" />
-                                                Download Sample Resume
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
 
